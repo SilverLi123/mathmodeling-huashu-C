@@ -4,43 +4,53 @@
  "log": [
   {
    "K_reverted": 0,
-   "cost": -458908182.6653498
+   "cost": -458908182.6653498,
+   "note": "two_stage_T"
   },
   {
    "K_reverted": 5,
-   "cost": -458908182.6653498
+   "cost": -458908182.6653498,
+   "note": "revert_topK"
   },
   {
    "K_reverted": 10,
-   "cost": -458922572.9759475
+   "cost": -458922572.9759475,
+   "note": "revert_topK"
   },
   {
    "K_reverted": 25,
-   "cost": -458952283.13866234
+   "cost": -458952283.13866234,
+   "note": "revert_topK"
   },
   {
    "K_reverted": 50,
-   "cost": -458995153.6130002
+   "cost": -458995153.6130002,
+   "note": "revert_topK"
   },
   {
    "K_reverted": 100,
-   "cost": -459044779.0512297
-  },
-  {
-   "K_reverted": 10543,
-   "cost": -459222686.8576359
+   "cost": -459044779.0512297,
+   "note": "revert_topK"
   },
   {
    "K_reverted": 10543,
    "cost": -459222686.8576359,
-   "note": "full_revert=local_N"
+   "note": "revert_topK"
+  },
+  {
+   "K_reverted": 10543,
+   "cost": -459205361.43122816,
+   "note": "local_N_direct"
   },
   {
    "K_reverted": 0,
    "cost": -458908182.6653498,
-   "note": "two_stage_T"
+   "note": "two_stage_T_direct"
   }
  ],
  "n_migrated": 10543,
- "n_reverted": 0
+ "n_reverted": 0,
+ "local_N_cost": -459205361.43122816,
+ "two_stage_T_cost": -458908182.6653498,
+ "best_verified_cost": -459222686.8576359
 }

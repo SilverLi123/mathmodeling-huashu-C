@@ -28,28 +28,37 @@
    "ren_util": 0.6951366327266318
   }
  },
+ "LNS": {
+  "energy": {
+   "cost": -459222686.8576359,
+   "carbon": 3.646641881530899e-06,
+   "ren_util": 0.6951112752456817
+  },
+  "n_migrated": 10543,
+  "incumbent": "revert_top10543"
+ },
  "F11": {
   "label": "任务优化+储能",
   "energy": {
-   "cost": -459205361.43122816,
+   "cost": -459222686.8576359,
    "carbon": 3.646641881530899e-06,
-   "ren_util": 0.6951366327266318
+   "ren_util": 0.6951112752456817
   },
-  "incumbent_source": "F01(固定任务+储能)"
+  "incumbent_source": "LNS(批量回退)"
  },
  "interaction": {
-  "I": -24391970.070492923,
+  "I": -24374644.64408517,
   "note": "可行策略点估计，任务侧无有效全问题下界，不报告认证区间",
   "formula": "F10+F01-F11-F00",
-  "F11_incumbent_source": "F01(固定任务+储能)"
+  "F11_incumbent_source": "LNS(批量回退)"
  },
  "storage_saving_joint": {
   "fixed": 39408800.947386205,
-  "task": 15016830.876893282
+  "task": 15034156.303301036
  },
  "task_saving": {
   "no_storage": 24391970.070492923,
-  "with_storage": 0.0
+  "with_storage": 17325.42640775442
  },
  "F01_common_baseline": "F01 在 Q4 公共基线(本地调度 aiN)上重解储能，与 F00 同负荷体系（非 Q3 附件负荷）"
 }

@@ -44,7 +44,8 @@ def _settle(inputs, ai_mw, with_storage=False):
     return eval_flows(inputs, flows) if flows is not None else {"cost": np.nan, "carbon": np.nan, "ren_util": np.nan}, flows, load
 
 
-def run_q4(inputs, cfg, n_schedule=None, t_schedule=None, out_dir="results/runs/base/q4"):
+def run_q4(inputs, cfg, n_schedule=None, t_schedule=None, out_dir="results/runs/base/q4",
+           with_lsn=True):
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     res = {}
     # F00：固定任务(本地调度 N) + 无储能
@@ -70,6 +71,20 @@ def run_q4(inputs, cfg, n_schedule=None, t_schedule=None, out_dir="results/runs/
         ("F01(固定任务+储能)", en01, fl01, lo01),
         ("F10(任务优化+无储能)", en10, fl10, lo10)]
         if np.isfinite(en["cost"])]
+    # LNS 改进候选：任务+储能的批量回退局部搜索（真实重解储能子问题，导出可验收排程/能流）
+    if with_lsn and n_schedule is not None and t_schedule is not None:
+        try:
+            from src.joint_lsn import joint_storage_lsn
+            _lsn = joint_storage_lsn(inputs, n_schedule, t_schedule, top_k=200)
+            if _lsn.get("best_schedule") is not None and np.isfinite(_lsn.get("best_cost", np.nan)):
+                ai_lsn = _load_to_ai(inputs, _lsn["best_schedule"])
+                en_lsn, fl_lsn, lo_lsn = _settle(inputs, ai_lsn, with_storage=True)
+                if np.isfinite(en_lsn["cost"]):
+                    cand.append(("LNS(批量回退)", en_lsn, fl_lsn, lo_lsn))
+                    res["LNS"] = {"energy": en_lsn, "n_migrated": _lsn.get("n_migrated"),
+                                  "incumbent": _lsn.get("best_incumbent")}
+        except Exception as e:  # noqa: BLE001
+            res["LNS_error"] = str(e)
     if not cand:
         branch, en11, fl11, lo11 = "F01(固定任务+储能)", en01, fl01, lo01
     else:

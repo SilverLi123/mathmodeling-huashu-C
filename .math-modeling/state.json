@@ -1388,6 +1388,11 @@
           }
         }
       }
+    },
+    {
+      "at": "2026-09-09T01:36:37.216Z",
+      "event": "decision",
+      "detail": "按审阅意见实施代码修复：①Q2 TaskScheduler 增加 IT/设施硬功率约束（add/remove/fits/fits_after_move 追踪 AI IT 功率，检查 IT_MW+NonAI≤Max_IT），checks.py 增加 it_capacity/facility_capacity 独立重构检查，重跑 Q2 三方案 check_fails=0 且 IT/设施/GPU 全 PASS；②forecast 改为固定起点直接多步（严格过去特征），泄漏反例复算由 124.66→0；③储能 MILP 回退约束 C-Cmax*z<=0（原为 <=Cmax）+ z 上界显式=1 + 次级 cost_first/cost_secondary 分离；④Q3 分区爬坡改按时间差分，D/E/F=8.7484/11.4125/12.2144 与审阅独立重算一致；⑤joint_lsn 全回退含时间改变任务（4853+5690=10543）+ build_from 直接构建本地N/迁移T + 导出 best_schedule/flows/verified_cost；⑥scenario 每场景重跑 20→80→150ms 迁移 incumbent 链；⑦run_q4 F11 纳入 LNS 候选。"
     }
   ]
 }

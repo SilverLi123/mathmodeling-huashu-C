@@ -57,7 +57,7 @@ def scenario_point(inputs, n_schedule, t_schedule, ren_scale=1.0, sell_scale=1.0
             t_scen = prev
             t_status = "reoptimized"
     q = run_q4(ni, {}, n_schedule=n_schedule, t_schedule=t_scen,
-               out_dir="results/runs/scenarios/_tmp")
+               out_dir="results/runs/scenarios/_tmp", with_lsn=False)
     q["task_reoptimize_status"] = t_status
     return q
 
