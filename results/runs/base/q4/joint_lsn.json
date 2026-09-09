@@ -1,0 +1,46 @@
+{
+ "best_cost": -459222686.8576359,
+ "best_incumbent": "revert_top10543",
+ "log": [
+  {
+   "K_reverted": 0,
+   "cost": -458908182.6653498
+  },
+  {
+   "K_reverted": 5,
+   "cost": -458908182.6653498
+  },
+  {
+   "K_reverted": 10,
+   "cost": -458922572.9759475
+  },
+  {
+   "K_reverted": 25,
+   "cost": -458952283.13866234
+  },
+  {
+   "K_reverted": 50,
+   "cost": -458995153.6130002
+  },
+  {
+   "K_reverted": 100,
+   "cost": -459044779.0512297
+  },
+  {
+   "K_reverted": 10543,
+   "cost": -459222686.8576359
+  },
+  {
+   "K_reverted": 10543,
+   "cost": -459222686.8576359,
+   "note": "full_revert=local_N"
+  },
+  {
+   "K_reverted": 0,
+   "cost": -458908182.6653498,
+   "note": "two_stage_T"
+  }
+ ],
+ "n_migrated": 10543,
+ "n_reverted": 0
+}

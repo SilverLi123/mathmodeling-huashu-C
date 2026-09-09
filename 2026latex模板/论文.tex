@@ -1,0 +1,87 @@
+\PassOptionsToPackage{quiet}{xeCJK}
+% 2026规范（第十条）：电子版论文第一页必须为摘要专用页，不要承诺书和编号专用页；
+% 交纸质版时删除 withoutpreface 选项即可自动生成第一页承诺书、第二页编号专用页，
+% 并用 \tihao{题号}\baominghao{队号}\schoolname{学校}\membera{姓名}\memberb{}\memberc{}\supervisor{} 填写信息
+\documentclass[withoutpreface,bwprint]{format}
+\usepackage{etoolbox}
+\usepackage{ctex}
+\BeforeBeginEnvironment{tabular}{\zihao{-5}}
+% 参考文献改用纯tex格式，不再需要natbib+bibtex
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{url}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\renewcommand{\textbf}[1]{{\song\bfseries #1}}
+
+% 页脚设置（2026规范第三条）：页码位于页脚中部，阿拉伯数字，从摘要专用页"1"开始连续编号
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}% 清空页眉页脚
+\fancyfoot[C]{\zihao{-5}\thepage}% 页脚中部：阿拉伯数字页码，小五号
+\renewcommand{\headrulewidth}{0pt}% 去掉页眉横线
+\renewcommand{\footrulewidth}{0pt}% 去掉页脚横线
+\renewcommand{\lstlistingname}{程序}% 附录代码清单的名称
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  box/.style={rectangle, draw, minimum width=3.2cm, minimum height=0.9cm, align=center},
+  arrow/.style={thick, -{Stealth}}
+}
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文
+\begin{document}
+
+% ============================================================
+% 摘要专用页（2026规范第三条：含标题和关键词，原则上不超过一页；
+% 页码从此页开始编写，页脚中部阿拉伯数字从"1"开始连续编号）
+{\centering\zihao{3}\bfseries 论文222标题\par}
+
+\input{0.摘要.tex}
+
+% ============================================================
+% 正文（2026规范第四条：摘要页之后即为正文，不要目录，正文不超过30页；
+% 第六条：摘要页、正文和附录中不得出现参赛者身份、学校及赛区信息）
+\input{1.引言.tex}
+
+\input{2.总体分析.tex}
+
+\input{3.模型假设.tex}
+
+\input{4.符号说明.tex}
+
+\input{5.模型的建立与求解.tex}
+
+\input{6.模型检验.tex}
+
+\input{7.模型评价.tex}
+
+\input{8.模型改进推广.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 参考文献
+\newpage
+\input{9.参考文献.tex}
+
+
+\newpage
+\input{10.附录.tex}
+
+
+\end{document}

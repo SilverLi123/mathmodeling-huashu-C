@@ -1,0 +1,620 @@
+{
+ "T": {
+  "20.0": {
+   "status": "OK",
+   "latency_budget_ms": 20.0,
+   "energy": {
+    "cost": -431652645.1800108,
+    "carbon": 109.67869339648728,
+    "ren_util": 0.6839924474757224
+   },
+   "sched_metrics": {
+    "n_tasks": 50000,
+    "mean_wait_h": 4.4203,
+    "p95_wait_h": 4.0,
+    "mean_latency_ms": 5.58058,
+    "sum_wait_h": 221015.0,
+    "wait_by_type": {
+     "AITraining": {
+      "mean_h": 8.966060752460898,
+      "p95_h": 4.0
+     },
+     "BatchInference": {
+      "mean_h": 4.339654244182569,
+      "p95_h": 4.0
+     },
+     "RealTimeInference": {
+      "mean_h": 0.0,
+      "p95_h": 0.0
+     }
+    },
+    "slowdown_by_type": {
+     "AITraining": {
+      "mean": 8.331581376870973,
+      "p95": 2.9154042553191686
+     },
+     "BatchInference": {
+      "mean": 5.080483118836081,
+      "p95": 2.0958904109589103
+     },
+     "RealTimeInference": {
+      "mean": 1.0000000000000009,
+      "p95": 1.0000000000000648
+     }
+    },
+    "latency_by_type": {
+     "AITraining": {
+      "mean_ms": 6.172896914064859
+     },
+     "BatchInference": {
+      "mean_ms": 5.574684452952085
+     },
+     "RealTimeInference": {
+      "mean_ms": 5.0
+     }
+    },
+    "migration": {
+     "n_migrated": 2233,
+     "share": 0.04466
+    },
+    "migration_matrix": {
+     "RegionA": {
+      "RegionA": 10062,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 0,
+      "RegionF": 0
+     },
+     "RegionB": {
+      "RegionA": 0,
+      "RegionB": 9200,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 0,
+      "RegionF": 0
+     },
+     "RegionC": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 7559,
+      "RegionD": 0,
+      "RegionE": 0,
+      "RegionF": 0
+     },
+     "RegionD": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 9560,
+      "RegionE": 0,
+      "RegionF": 0
+     },
+     "RegionE": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 5592,
+      "RegionF": 913
+     },
+     "RegionF": {
+      "RegionA": 0,
+      "RegionB": 0,
+      "RegionC": 0,
+      "RegionD": 0,
+      "RegionE": 1320,
+      "RegionF": 5794
+     }
+    },
+    "peak_net_import_MW": {
+     "RegionA": 0.0,
+     "RegionB": 0.0,
+     "RegionC": 0.0,
+     "RegionD": 70.51541290666671,
+     "RegionE": 32.027916249999976,
+     "RegionF": 10.227999576666662
+    },
+    "peak_netpurchase_MW": {
+     "RegionA": 0.0,
+     "RegionB": 0.0,
+     "RegionC": 0.0,
+     "RegionD": 70.51541290666671,
+     "RegionE": 32.027916249999976,
+     "RegionF": 10.227999576666662
+    },
+    "mean_abs_ramp_MW": {
+     "RegionA": 0.0,
+     "RegionB": 0.0,
+     "RegionC": 0.0,
+     "RegionD": 6.874595492335836,
+     "RegionE": 8.85733166770572,
+     "RegionF": 12.618664849163167
+    },
+    "peak_gpu_util": {
+     "RegionA": 0.9823280423280428,
+     "RegionB": 0.9091168091168133,
+     "RegionC": 0.9636728395061768,
+     "RegionD": 0.9999433876811467,
+     "RegionE": 1.0000000000000024,
+     "RegionF": 1.0
+    }
+   },
+   "checks": {
+    "task_unique": true,
+    "task_coverage": true,
+    "no_task_past_2406": true,
+    "realtime_start_at_arrival": true,
+    "flex_start_ge_arrival": true,
+    "flex_finish_le_2406": true,
+    "latency_ok": true,
+    "finish_eq_start_dur": true,
+    "gpu_capacity": true,
+    "it_capacity": true,
+    "facility_capacity": true,
+    "energy_balance": true,
+    "purchase_cap": true,
+    "export_cap": true,
+    "renew_balance": true
+   },
+   "check_fails": 0
+  },
+  "80.0": {
+   "status": "OK",
+   "latency_budget_ms": 80.0,
+   "energy": {
+    "cost": -440656230.49362886,
+    "carbon": 515.8763836202261,
+    "ren_util": 0.6872048345590186
+   },
+   "sched_metrics": {
+    "n_tasks": 50000,
+    "mean_wait_h": 5.28484,
+    "p95_wait_h": 4.0,
+    "mean_latency_ms": 8.3072,
+    "sum_wait_h": 264242.0,
+    "wait_by_type": {
+     "AITraining": {
+      "mean_h": 10.503291261549611,
+      "p95_h": 4.0
+     },
+     "BatchInference": {
+      "mean_h": 5.402763653765628,
+      "p95_h": 4.0
+     },
+     "RealTimeInference": {
+      "mean_h": 0.0,
+      "p95_h": 0.0
+     }
+    },
+    "slowdown_by_type": {
+     "AITraining": {
+      "mean": 11.660894124135304,
+      "p95": 3.3376623376623136
+     },
+     "BatchInference": {
+      "mean": 6.895190726100181,
+      "p95": 2.286635944700502
+     },
+     "RealTimeInference": {
+      "mean": 1.0000000000000009,
+      "p95": 1.0000000000000648
+     }
+    },
+    "latency_by_type": {
+     "AITraining": {
+      "mean_ms": 10.92064738208829
+     },
+     "BatchInference": {
+      "mean_ms": 9.027038344200514
+     },
+     "RealTimeInference": {
+      "mean_ms": 5.0
+     }
+    },
+    "migration": {
+     "n_migrated": 4705,
+     "share": 0.0941
+    },
+    "migration_matrix": {
+     "RegionA": {
+      "RegionA": 10028,
+      "RegionB": 96,
+      "RegionC": 70,
+      "RegionD": 288,
+      "RegionE": 205,
+      "RegionF": 0
+     },
+     "RegionB": {
+      "RegionA": 10,
+      "RegionB": 9060,
+      "RegionC": 62,
+      "RegionD": 324,
+      "RegionE": 210,
+      "RegionF": 215
+     },
+     "RegionC": {
+      "RegionA": 3,
+      "RegionB": 7,
+      "RegionC": 7386,
+      "RegionD": 272,
+      "RegionE": 159,
+      "RegionF": 186
+     },
+     "RegionD": {
+      "RegionA": 19,
+      "RegionB": 31,
+      "RegionC": 23,
+      "RegionD": 8217,
+      "RegionE": 300,
+      "RegionF": 402
+     },
+     "RegionE": {
+      "RegionA": 2,
+      "RegionB": 3,
+      "RegionC": 8,
+      "RegionD": 246,
+      "RegionE": 5341,
+      "RegionF": 641
+     },
+     "RegionF": {
+      "RegionA": 0,
+      "RegionB": 3,
+      "RegionC": 10,
+      "RegionD": 213,
+      "RegionE": 697,
+      "RegionF": 5263
+     }
+    },
+    "peak_net_import_MW": {
+     "RegionA": 56.313799549998635,
+     "RegionB": 12.788900450001051,
+     "RegionC": 9.933199999999829,
+     "RegionD": 85.77650666667512,
+     "RegionE": 5.147499999999923,
+     "RegionF": 43.26239333333979
+    },
+    "peak_netpurchase_MW": {
+     "RegionA": 56.313799549998635,
+     "RegionB": 12.788900450001051,
+     "RegionC": 9.933199999999829,
+     "RegionD": 85.77650666667512,
+     "RegionE": 5.147499999999923,
+     "RegionF": 43.26239333333979
+    },
+    "mean_abs_ramp_MW": {
+     "RegionA": 0.1988104311305037,
+     "RegionB": 0.03214526221945464,
+     "RegionC": 0.008257024106400522,
+     "RegionD": 6.409625764300388,
+     "RegionE": 7.78792185750901,
+     "RegionF": 8.923646611512899
+    },
+    "peak_gpu_util": {
+     "RegionA": 1.0,
+     "RegionB": 0.9997720797720799,
+     "RegionC": 1.0,
+     "RegionD": 1.0,
+     "RegionE": 1.0,
+     "RegionF": 1.000000000000008
+    }
+   },
+   "checks": {
+    "task_unique": true,
+    "task_coverage": true,
+    "no_task_past_2406": true,
+    "realtime_start_at_arrival": true,
+    "flex_start_ge_arrival": true,
+    "flex_finish_le_2406": true,
+    "latency_ok": true,
+    "finish_eq_start_dur": true,
+    "gpu_capacity": true,
+    "it_capacity": true,
+    "facility_capacity": true,
+    "energy_balance": true,
+    "purchase_cap": true,
+    "export_cap": true,
+    "renew_balance": true
+   },
+   "check_fails": 0
+  },
+  "150.0": {
+   "status": "OK",
+   "latency_budget_ms": 150.0,
+   "energy": {
+    "cost": -444188530.5543349,
+    "carbon": 419.58925369524775,
+    "ren_util": 0.6883402310676557
+   },
+   "sched_metrics": {
+    "n_tasks": 50000,
+    "mean_wait_h": 6.1893,
+    "p95_wait_h": 4.0,
+    "mean_latency_ms": 8.73222,
+    "sum_wait_h": 309465.0,
+    "wait_by_type": {
+     "AITraining": {
+      "mean_h": 12.794733981520624,
+      "p95_h": 4.0
+     },
+     "BatchInference": {
+      "mean_h": 5.838188670215948,
+      "p95_h": 4.0
+     },
+     "RealTimeInference": {
+      "mean_h": 0.0,
+      "p95_h": 0.0
+     }
+    },
+    "slowdown_by_type": {
+     "AITraining": {
+      "mean": 12.632990932868466,
+      "p95": 3.6865671641791113
+     },
+     "BatchInference": {
+      "mean": 6.468507705901173,
+      "p95": 2.3636363636363846
+     },
+     "RealTimeInference": {
+      "mean": 1.0000000000000009,
+      "p95": 1.0000000000000648
+     }
+    },
+    "latency_by_type": {
+     "AITraining": {
+      "mean_ms": 11.843649978863457
+     },
+     "BatchInference": {
+      "mean_ms": 9.38398037925465
+     },
+     "RealTimeInference": {
+      "mean_ms": 5.0
+     }
+    },
+    "migration": {
+     "n_migrated": 4853,
+     "share": 0.09706
+    },
+    "migration_matrix": {
+     "RegionA": {
+      "RegionA": 10005,
+      "RegionB": 108,
+      "RegionC": 68,
+      "RegionD": 289,
+      "RegionE": 200,
+      "RegionF": 37
+     },
+     "RegionB": {
+      "RegionA": 29,
+      "RegionB": 9060,
+      "RegionC": 69,
+      "RegionD": 379,
+      "RegionE": 242,
+      "RegionF": 272
+     },
+     "RegionC": {
+      "RegionA": 4,
+      "RegionB": 13,
+      "RegionC": 7404,
+      "RegionD": 380,
+      "RegionE": 234,
+      "RegionF": 263
+     },
+     "RegionD": {
+      "RegionA": 12,
+      "RegionB": 12,
+      "RegionC": 7,
+      "RegionD": 8088,
+      "RegionE": 232,
+      "RegionF": 293
+     },
+     "RegionE": {
+      "RegionA": 10,
+      "RegionB": 5,
+      "RegionC": 4,
+      "RegionD": 262,
+      "RegionE": 5363,
+      "RegionF": 615
+     },
+     "RegionF": {
+      "RegionA": 2,
+      "RegionB": 2,
+      "RegionC": 7,
+      "RegionD": 162,
+      "RegionE": 641,
+      "RegionF": 5227
+     }
+    },
+    "peak_net_import_MW": {
+     "RegionA": 29.739499999999907,
+     "RegionB": 7.6445004500000096,
+     "RegionC": 22.379960000000438,
+     "RegionD": 109.13266623999982,
+     "RegionE": 0.0,
+     "RegionF": 13.7814600000072
+    },
+    "peak_netpurchase_MW": {
+     "RegionA": 29.739499999999907,
+     "RegionB": 7.6445004500000096,
+     "RegionC": 22.379960000000438,
+     "RegionD": 109.13266623999982,
+     "RegionE": 0.0,
+     "RegionF": 13.7814600000072
+    },
+    "mean_abs_ramp_MW": {
+     "RegionA": 0.09687539297589601,
+     "RegionB": 0.011751455070656752,
+     "RegionC": 0.03494088113051071,
+     "RegionD": 4.495273422931561,
+     "RegionE": 7.34307563937379,
+     "RegionF": 8.523064861039083
+    },
+    "peak_gpu_util": {
+     "RegionA": 1.0,
+     "RegionB": 0.9998860398860396,
+     "RegionC": 1.0,
+     "RegionD": 1.0,
+     "RegionE": 1.0,
+     "RegionF": 0.9998792270531689
+    }
+   },
+   "checks": {
+    "task_unique": true,
+    "task_coverage": true,
+    "no_task_past_2406": true,
+    "realtime_start_at_arrival": true,
+    "flex_start_ge_arrival": true,
+    "flex_finish_le_2406": true,
+    "latency_ok": true,
+    "finish_eq_start_dur": true,
+    "gpu_capacity": true,
+    "it_capacity": true,
+    "facility_capacity": true,
+    "energy_balance": true,
+    "purchase_cap": true,
+    "export_cap": true,
+    "renew_balance": true
+   },
+   "check_fails": 0
+  }
+ },
+ "N": {
+  "energy": {
+   "cost": -419796560.48384196,
+   "carbon": 8.850562453334021,
+   "ren_util": 0.679143983294982
+  },
+  "sched_metrics": {
+   "n_tasks": 50000,
+   "mean_wait_h": 0.00172,
+   "p95_wait_h": 0.0,
+   "mean_latency_ms": 5.0,
+   "sum_wait_h": 86.0,
+   "wait_by_type": {
+    "AITraining": {
+     "mean_h": 0.005193550335165167,
+     "p95_h": 0.0
+    },
+    "BatchInference": {
+     "mean_h": 0.0,
+     "p95_h": 0.0
+    },
+    "RealTimeInference": {
+     "mean_h": 0.0,
+     "p95_h": 0.0
+    }
+   },
+   "slowdown_by_type": {
+    "AITraining": {
+     "mean": 1.0033784434012731,
+     "p95": 1.000000000000101
+    },
+    "BatchInference": {
+     "mean": 1.0000000000000002,
+     "p95": 1.0000000000000937
+    },
+    "RealTimeInference": {
+     "mean": 1.0000000000000009,
+     "p95": 1.0000000000000888
+    }
+   },
+   "latency_by_type": {
+    "AITraining": {
+     "mean_ms": 5.0
+    },
+    "BatchInference": {
+     "mean_ms": 5.0
+    },
+    "RealTimeInference": {
+     "mean_ms": 5.0
+    }
+   },
+   "migration": {
+    "n_migrated": 0,
+    "share": 0.0
+   },
+   "migration_matrix": {
+    "RegionA": {
+     "RegionA": 10062,
+     "RegionB": 0,
+     "RegionC": 0,
+     "RegionD": 0,
+     "RegionE": 0,
+     "RegionF": 0
+    },
+    "RegionB": {
+     "RegionA": 0,
+     "RegionB": 9200,
+     "RegionC": 0,
+     "RegionD": 0,
+     "RegionE": 0,
+     "RegionF": 0
+    },
+    "RegionC": {
+     "RegionA": 0,
+     "RegionB": 0,
+     "RegionC": 7559,
+     "RegionD": 0,
+     "RegionE": 0,
+     "RegionF": 0
+    },
+    "RegionD": {
+     "RegionA": 0,
+     "RegionB": 0,
+     "RegionC": 0,
+     "RegionD": 9560,
+     "RegionE": 0,
+     "RegionF": 0
+    },
+    "RegionE": {
+     "RegionA": 0,
+     "RegionB": 0,
+     "RegionC": 0,
+     "RegionD": 0,
+     "RegionE": 6912,
+     "RegionF": 0
+    },
+    "RegionF": {
+     "RegionA": 0,
+     "RegionB": 0,
+     "RegionC": 0,
+     "RegionD": 0,
+     "RegionE": 0,
+     "RegionF": 6707
+    }
+   },
+   "peak_net_import_MW": {
+    "RegionA": 0.0,
+    "RegionB": 0.0,
+    "RegionC": 0.0,
+    "RegionD": 0.0,
+    "RegionE": 0.0,
+    "RegionF": 31.59786666666912
+   },
+   "peak_netpurchase_MW": {
+    "RegionA": 0.0,
+    "RegionB": 0.0,
+    "RegionC": 0.0,
+    "RegionD": 0.0,
+    "RegionE": 0.0,
+    "RegionF": 31.59786666666912
+   },
+   "mean_abs_ramp_MW": {
+    "RegionA": 0.0,
+    "RegionB": 0.0,
+    "RegionC": 0.0,
+    "RegionD": 8.7550725202106,
+    "RegionE": 11.443508587905233,
+    "RegionF": 12.194799552748675
+   },
+   "peak_gpu_util": {
+    "RegionA": 0.9823280423280428,
+    "RegionB": 0.9091168091168133,
+    "RegionC": 0.9636728395061768,
+    "RegionD": 0.9632586050724362,
+    "RegionE": 0.9964920948616587,
+    "RegionF": 0.9994996549344328
+   }
+  }
+ }
+}

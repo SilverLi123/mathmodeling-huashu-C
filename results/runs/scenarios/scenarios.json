@@ -1,0 +1,260 @@
+{
+ "renewable_scale": [
+  {
+   "scenario": "ren_scale=1.0",
+   "rho": 1.0,
+   "F00": -419796560.48384196,
+   "F10": -434748962.5480523,
+   "F01": -459205361.43122816,
+   "F11": -459205361.43122816,
+   "I": -14952402.064210355,
+   "task_saving": 14952402.064210355,
+   "storage_saving_fixed": 39408800.947386205,
+   "storage_saving_task": 24456398.88317585,
+   "F10_migration_used": true,
+   "F11_incumbent_source": "F01(固定任务+储能)",
+   "F00_carbon": 8.850562453334021,
+   "F11_carbon": 3.646641881530899e-06
+  },
+  {
+   "scenario": "ren_scale=0.9",
+   "rho": 0.9,
+   "F00": -379112005.3503396,
+   "F10": -393445926.369908,
+   "F01": -439534284.8922347,
+   "F11": -446619556.7643394,
+   "I": -7248649.147463679,
+   "task_saving": 14333921.019568384,
+   "storage_saving_fixed": 60422279.54189509,
+   "storage_saving_task": 53173630.39443141,
+   "F10_migration_used": true,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": 1405.8610003060044,
+   "F11_carbon": 1182.9577946301608
+  },
+  {
+   "scenario": "ren_scale=0.8",
+   "rho": 0.8,
+   "F00": -302949870.2490496,
+   "F10": -323106478.31296796,
+   "F01": -396049965.8354274,
+   "F11": -409785783.8086596,
+   "I": -6420790.090686083,
+   "task_saving": 20156608.063918352,
+   "storage_saving_fixed": 93100095.5863778,
+   "storage_saving_task": 86679305.49569166,
+   "F10_migration_used": true,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": 30719.864349225754,
+   "F11_carbon": 6492.666749238453
+  },
+  {
+   "scenario": "ren_scale=0.7",
+   "rho": 0.7,
+   "F00": -167171309.25396115,
+   "F10": -191622723.16806948,
+   "F01": -272739438.77413356,
+   "F11": -295180041.71662784,
+   "I": -2010810.9716140628,
+   "task_saving": 24451413.914108336,
+   "storage_saving_fixed": 105568129.52017242,
+   "storage_saving_task": 103557318.54855835,
+   "F10_migration_used": true,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": 117665.89596903173,
+   "F11_carbon": 72467.02718765676
+  },
+  {
+   "scenario": "ren_scale=0.6",
+   "rho": 0.6,
+   "F00": 58041504.351469174,
+   "F10": 12705390.854363753,
+   "F01": -33627099.732558265,
+   "F11": -84610138.46659419,
+   "I": 5646925.236930504,
+   "task_saving": 45336113.49710542,
+   "storage_saving_fixed": 91668604.08402744,
+   "storage_saving_task": 97315529.32095794,
+   "F10_migration_used": true,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": 260490.02784774225,
+   "F11_carbon": 233121.9257290765
+  },
+  {
+   "scenario": "ren_scale=0.5",
+   "rho": 0.5,
+   "F00": 384613518.7844225,
+   "F10": 384613518.7844225,
+   "F01": 271326537.4560851,
+   "F11": 261763218.01136535,
+   "I": 9563319.444719732,
+   "task_saving": 0.0,
+   "storage_saving_fixed": 113286981.32833743,
+   "storage_saving_task": 122850300.77305716,
+   "F10_migration_used": false,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": 480082.0100978117,
+   "F11_carbon": 481575.14990555996
+  },
+  {
+   "scenario": "ren_scale=0.4",
+   "rho": 0.4,
+   "F00": NaN,
+   "F10": NaN,
+   "F01": 817538951.7981516,
+   "F11": 779034712.9265162,
+   "I": NaN,
+   "task_saving": NaN,
+   "storage_saving_fixed": NaN,
+   "storage_saving_task": NaN,
+   "F10_migration_used": false,
+   "F11_incumbent_source": "两阶段(迁移+储能)",
+   "F00_carbon": NaN,
+   "F11_carbon": 919396.4102131788
+  }
+ ],
+ "transition_intervals": [
+  {
+   "name": "task_migration_gain_decays_F00-F10",
+   "interval": [
+    0.6,
+    0.5
+   ],
+   "note": "任务迁移独立增益(≥0)随新能源供给下降而衰减至 0"
+  },
+  {
+   "name": "storage_saving_F00-F01",
+   "interval": [
+    null,
+    null
+   ],
+   "note": "储能节省恒正(区间 None=未翻转)"
+  }
+ ],
+ "special": {
+  "low_renewable_outage": {
+   "F00": -411667658.01232094,
+   "F10": -428289282.0216881,
+   "F01": -452455131.0352797,
+   "F11": -453362087.0230372
+  },
+  "price_spread": {
+   "F00": -293852663.07148933,
+   "F10": -304111503.58648837,
+   "F01": -321443753.00095975,
+   "F11": -321443753.00095975
+  }
+ },
+ "q_low_detail": {
+  "F00": {
+   "label": "固定任务+无储能",
+   "energy": {
+    "cost": -411667658.01232094,
+    "carbon": 4958.9478785493,
+    "ren_util": 0.6806582724422282
+   },
+   "N": {
+    "cost": -411667658.01232094,
+    "carbon": 4958.9478785493
+   }
+  },
+  "F10": {
+   "label": "任务优化+无储能",
+   "energy": {
+    "cost": -428289282.0216881,
+    "carbon": 4437.229622358495,
+    "ren_util": 0.6871921132486918
+   },
+   "migration_used": true
+  },
+  "F01": {
+   "label": "固定任务+储能",
+   "energy": {
+    "cost": -452455131.0352797,
+    "carbon": 3737.9520675353792,
+    "ren_util": 0.6967807365516144
+   }
+  },
+  "F11": {
+   "label": "任务优化+储能",
+   "energy": {
+    "cost": -453362087.0230372,
+    "carbon": 2493.883655960348,
+    "ren_util": 0.6964615760915942
+   },
+   "incumbent_source": "两阶段(迁移+储能)"
+  },
+  "interaction": {
+   "I": -15714668.021609604,
+   "note": "可行策略点估计，任务侧无有效全问题下界，不报告认证区间",
+   "formula": "F10+F01-F11-F00",
+   "F11_incumbent_source": "两阶段(迁移+储能)"
+  },
+  "storage_saving_joint": {
+   "fixed": 40787473.022958755,
+   "task": 25072805.00134909
+  },
+  "task_saving": {
+   "no_storage": 16621624.009367168,
+   "with_storage": 906955.987757504
+  },
+  "F01_common_baseline": "F01 在 Q4 公共基线(本地调度 aiN)上重解储能，与 F00 同负荷体系（非 Q3 附件负荷）",
+  "task_reoptimize_status": "reoptimized"
+ },
+ "q_price_detail": {
+  "F00": {
+   "label": "固定任务+无储能",
+   "energy": {
+    "cost": -293852663.07148933,
+    "carbon": 8.850562453334021,
+    "ren_util": 0.679143983294982
+   },
+   "N": {
+    "cost": -293852663.07148933,
+    "carbon": 8.850562453334021
+   }
+  },
+  "F10": {
+   "label": "任务优化+无储能",
+   "energy": {
+    "cost": -304111503.58648837,
+    "carbon": 738.558247292595,
+    "ren_util": 0.6853315704378357
+   },
+   "migration_used": true
+  },
+  "F01": {
+   "label": "固定任务+储能",
+   "energy": {
+    "cost": -321443753.00095975,
+    "carbon": 3.0069277617185365e-06,
+    "ren_util": 0.6951366327267212
+   }
+  },
+  "F11": {
+   "label": "任务优化+储能",
+   "energy": {
+    "cost": -321443753.00095975,
+    "carbon": 3.0069277617185365e-06,
+    "ren_util": 0.6951366327267212
+   },
+   "incumbent_source": "F01(固定任务+储能)"
+  },
+  "interaction": {
+   "I": -10258840.514999032,
+   "note": "可行策略点估计，任务侧无有效全问题下界，不报告认证区间",
+   "formula": "F10+F01-F11-F00",
+   "F11_incumbent_source": "F01(固定任务+储能)"
+  },
+  "storage_saving_joint": {
+   "fixed": 27591089.92947042,
+   "task": 17332249.414471388
+  },
+  "task_saving": {
+   "no_storage": 10258840.514999032,
+   "with_storage": 0.0
+  },
+  "F01_common_baseline": "F01 在 Q4 公共基线(本地调度 aiN)上重解储能，与 F00 同负荷体系（非 Q3 附件负荷）",
+  "task_reoptimize_status": "reoptimized"
+ }
+}

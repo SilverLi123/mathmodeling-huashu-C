@@ -1,0 +1,94 @@
+\section{模型检验与分析}
+
+为验证模型的有效性与稳健性，从预测精度、守恒性、约束自洽与敏感性四个层面进行检验。
+
+\subsection{预测误差与守恒性检验}
+
+预测误差如表\ref{tab:error}所示：岭回归相较均值基准提升约 $5\%$（WAPE $0.623$ vs $0.657$），表明在本文比较的模型族与有限历史长度下，24h 尺度到达序列的可预测增益有限——问题的主要价值不在复杂预测，而在真实到达后的可行与经济调度；模型通过回测自适应选型，避免在无信息量时过度自信。守恒性方面，无储能能源结算的解析解与线性规划解逐值（购买/外送/弃电）之差为 $1.5\times10^{-8}$（机器精度量级），储能 SOC 递归残差 $6.8\times10^{-13}$、终端 SOC 回归初值；50000 任务的覆盖、GPU 容量、时延、灵活边界、购售上限、可再生平衡等审计项全部通过（违例数 0）。
+
+\begin{table}[H]
+  \centering
+  \caption{预测误差与守恒检验}
+  \label{tab:error}
+  \begin{tabularx}{\textwidth}{CCCC}
+    \toprule
+    项 & 指标 & 数值 & 说明 \\
+    \midrule
+    预测 & WAPE & 0.623 & 432 个(区域$\times$类型$\times$24)样本 \\
+    预测 & MAE & 25.16 & 到达 GPU 需求单位 \\
+    结算一致 & 解析 vs LP & $1.5\times10^{-8}$ & 逐值最大差 \\
+    储能守恒 & SOC 残差 & $6.8\times10^{-13}$ & 终端=初值 \\
+    约束审计 & 违例数 & 0 & 8 类约束全真 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{敏感性分析}
+
+以新能源规模 $\rho$ 与迁移时延预算为扰动（表\ref{tab:sensitivity}、图\ref{fig:sensitivity}）：任务迁移独立增益（incumbent 保护下 $\ge 0$）对 $\rho$ 敏感且在 $\rho\approx 0.75$ 附近衰减至 $0$，储能收益恒正；时延预算放松（20$\to$150 ms）使成本改善从 $1.2\times10^7$ 单调增至 $2.4\times10^7$ 元，碳排先升后落。结论方向在合理扰动下保持稳定，说明模型为"技术可行性受限的紧耦合最优"，而非脆弱的单点最优。
+
+\begin{table}[H]
+  \centering
+  \caption{敏感性分析（关键数值，元）}
+  \label{tab:sensitivity}
+  \begin{tabularx}{\textwidth}{CCC}
+    \toprule
+    扰动 & 输出变化 & 评估 \\
+    \midrule
+    $\rho$: 1.0$\to$0.6 & 任务独立增益 $2.44\times10^7\to 0$ & 衰减至 0 \\
+    $\rho$: 1.0$\to$0.6 & 储能节省 $3.94\to9.17\times10^7$ & 恒正、放大 \\
+    时延预算 $20\to150$ & 成本改善 $1.2\to2.4\times10^7$ & 边际递减 \\
+    低新能源缺口 & 四格排序不变（储能最优） & 稳健 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/result_q4_scenario.png}
+  \caption{极端情景下四格对比：短时新能源缺口（左）与价差扩大（右）均保持"储能最优"排序，且储能收益放大}
+  \label{fig:sensitivity}
+\end{figure}
+
+\subsection{碳预算 $\varepsilon$-约束扫描}
+
+无储能语境下，成本与碳构成真实权衡：在问题二四种时延预算方案（$N$、$T_{20}$、$T_{80}$、$T_{150}$）上收集 $(cost,carbon)$ 点，取非支配下包络作成本—碳前沿，并对每个碳预算 $\varepsilon$ 取"满足 $E\le\varepsilon$ 的最低成本"（表\ref{tab:q2_carbon}、图\ref{fig:q2_carbon}）。前沿为三段阶梯：$\varepsilon<94$ t 时仅 $N$（不迁移）可行，成本 $-4.198\times10^8$ 元；$94\le\varepsilon<496$ t 时 $T_{20}$ 可行，成本降至 $-4.321\times10^8$ 元；$\varepsilon\ge 496$ t 时 $T_{150}$ 可行，成本再降至 $-4.442\times10^8$ 元——减排目标每收紧一档，系统须相应牺牲成本优化空间。
+
+\begin{table}[H]
+  \centering
+  \caption{无储能碳预算 $\varepsilon$-约束（方案族下包络）}
+  \label{tab:q2_carbon}
+  \begin{tabularx}{\textwidth}{lCCC}
+    \toprule
+    $\varepsilon$（tCO$_2$） & $<94$ & $[94,496)$ & $\ge 496$ \\
+    \midrule
+    最低成本（$10^8$ 元） & $-4.198$ & $-4.321$ & $-4.442$ \\
+    最优方案 & $N$ & $T_{20}$ & $T_{150}$ \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/process_q2_carbon.png}
+  \caption{无储能 Cost-Carbon 前沿（$\{N,T_{20},T_{80},T_{150}\}$ 散点与非支配下包络）}
+  \label{fig:q2_carbon}
+\end{figure}
+
+有储能语境下则相反：为验证"储能同时实现最低成本与零碳"是否稳健，对固定任务基线的设施负荷逐 $\varepsilon$ 施加碳上限 $E\le\varepsilon$，重解储能联合优化（式 9--12 追加碳约束行）。结果（表\ref{tab:carbon_eps}）显示：对任意 $\varepsilon\ge 0$，最优成本恒为 $-4.592\times10^8$ 元、碳排恒为 $0$，成本—碳帕累托前沿退化为单点——储能通过时序搬运把负荷移入零碳新能源时段，在成本极小点上天然满足任意碳预算，故含储能语境下碳约束退化（区别于问题二无储能下的成本—碳权衡）。
+
+\begin{table}[H]
+  \centering
+  \caption{碳预算 $\varepsilon$-约束扫描（固定任务基线+储能）}
+  \label{tab:carbon_eps}
+  \begin{tabularx}{\textwidth}{CCCCCCCC}
+    \toprule
+    $\varepsilon$ (tCO$_2$) & 0 & 1 & 10 & 100 & 1000 & $\infty$ \\
+    \midrule
+    最优成本（$10^8$ 元） & $-4.592$ & $-4.592$ & $-4.592$ & $-4.592$ & $-4.592$ & $-4.592$ \\
+    碳排（tCO$_2$） & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+方法学上，本文的碳感知调度沿用已有文献思路\cite{radovanovic2021carbon}，并据实报告：无储能下成本与碳构成权衡（表\ref{tab:q2_trade}、表\ref{tab:q2_carbon}），含储能下碳约束经 $\varepsilon$-扫描证实退化（最优解同时满足成本最小与碳排为零），这与"负载时空迁移收益有限"的已有结论\cite{sukprasert2023}方向一致。

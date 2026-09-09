@@ -1,0 +1,73 @@
+{
+  "title": "华数杯C题 面向算电协同的多目标调度优化研究",
+  "project_root": ".",
+  "input_dir": "C题 面向算电协同的多目标调度优化研究/附件数据",
+  "regions": ["RegionA", "RegionB", "RegionC", "RegionD", "RegionE", "RegionF"],
+  "task_types": ["AITraining", "BatchInference", "RealTimeInference"],
+  "arrival_horizon": 2400,
+  "settle_start": 2400,
+  "settle_end": 2405,
+  "settlement_hour": 2406,
+  "n_elec_hours": 2407,
+  "forecast": {
+    "train_end": 2351,
+    "valid_start": 2352,
+    "valid_end": 2375,
+    "final_train_end": 2375,
+    "test_start": 2376,
+    "test_end": 2399,
+    "horizon": 24,
+    "backtest_starts": [2208, 2232, 2256, 2280, 2304, 2328]
+  },
+  "last24": {
+    "start_hour": 2376,
+    "expected_arrivals": 538
+  },
+  "q1_policy": {
+    "objective_order": ["wait", "latency", "peak"],
+    "fixed_horizon_backlog": true
+  },
+  "seed": 20260908,
+  "sensitivity_seeds": [20260908, 20260909, 20260910],
+  "solver": {
+    "small_inst_budget_s": 120,
+    "rep_inst_budget_s": 600,
+    "full_first_budget_s": 1800,
+    "mip_gap_target": 0.001,
+    "q4_round_budget_s": 300,
+    "q4_max_rounds": 20,
+    "q4_no_improve_stop": 5
+  },
+  "candidates": {
+    "base_per_task": 32,
+    "verify": 64,
+    "expand": 128,
+    "neighborhood_sizes": [200, 500, 1000]
+  },
+  "tolerances": {
+    "time_h": 1e-8,
+    "power_MW": 1e-5,
+    "soc_MWh": 1e-5,
+    "binary": 1e-6,
+    "energy_balance_MW": 1e-3,
+    "mutex_MW": 1e-5,
+    "cost_tau": 1e-3
+  },
+  "storage": {
+    "lp_first": true,
+    "secondary_min_throughput": true,
+    "fallback_milp": true
+  },
+  "q3_load": "attachment",
+  "carbon_grid_points": 5,
+  "scenario_renewable_scale": [1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4],
+  "scenario_low_outage": {"hours": [1200, 1223], "factor": 0.5},
+  "scenario_price": {"mode": "mean_flat", "spread_mult": 1.5},
+  "runs": {
+    "base": {
+      "schedule_runid": "base.q1.sched.s20260908",
+      "fixed_task_family": "Q4_feasible_tasks",
+      "attachment_family": "Q3_attachment_load"
+    }
+  }
+}

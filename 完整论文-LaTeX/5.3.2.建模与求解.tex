@@ -1,0 +1,70 @@
+\subsubsection{问题三模型建立}
+
+对每个区域 $r$，决策变量为新能源四分流 $R^{\mathrm{load}},R^{\mathrm{ch}},R^{\mathrm{sell}},R^{\mathrm{curt}}$、电网两分量 $G^{\mathrm{load}},G^{\mathrm{ch}}$、储能放电 $D$ 与 $SOC$；记购电 $B_h=G^{\mathrm{load}}_h+G^{\mathrm{ch}}_h$、总充电 $C_h=R^{\mathrm{ch}}_h+G^{\mathrm{ch}}_h$、外送 $S_h=R^{\mathrm{sell}}_h$、弃电 $Q_h=R^{\mathrm{curt}}_h$。目标为
+\begin{equation}
+\min\ F_r=\sum_h\bigl(\pi_h^b B_h-\pi_h^s S_h\bigr),
+\end{equation}
+约束含电力平衡、充放互斥与储能物理：
+\begin{equation}
+B_h+R_{r h}+D_h=L^{\mathrm{fix}}_{r h}+C_h+S_h+Q_h,\qquad 0\le B_h\le M_r,\quad 0\le S_h\le X_r^{\max},
+\end{equation}
+\begin{equation}
+SOC_h=SOC_{h-1}+\eta_c C_h-\tfrac{1}{\eta_d}D_h,\quad SOC^{\min}\le SOC_h\le SOC^{\max},
+\end{equation}
+\begin{equation}
+0\le C_h\le P_c^{\max},\quad 0\le D_h\le P_d^{\max},\quad C_h\,D_h=0\ (\text{MILP 时}),\quad SOC_{2406}\ge SOC_0.
+\end{equation}
+式 12 中互斥项 $C_h\,D_h=0$ 先松弛（不入 LP）；LP 解若无同时充放（本问题均如此）则无需强制互斥，否则退化 MILP 强制。
+
+\subsubsection{问题三模型求解}
+
+逐区域求解结果（表\ref{tab:q3_result}，图\ref{fig:result_q3}、图\ref{fig:process_q3}）：系统成本由 $-4.198\times10^8$ 元降至 $-4.592\times10^8$ 元（节省 $3.94\times10^7$ 元），碳排由 $8.85$ tCO$_2$ 归零。A/B/C 三区外送上限为 0，储能搬运无法创造外送收益，储能价值为 0（吞吐最小化后无充放、成本与碳均不变）；D/E/F 三区把低谷弃电移峰外送，分别增利 $0.97/1.37/1.60\times10^7$ 元，同时把区域 F 的 2400 缺口由放电补上。SOC 递归残差 $6.8\times10^{-13}$、终端 SOC 回归初值，说明储能守恒严格满足。
+
+\begin{table}[H]
+  \centering
+  \caption{问题三分区域储能价值（$F(N)-F(S)$，元）}
+  \begin{tabularx}{\textwidth}{CCCCCCC}
+    \toprule
+    区域 & A & B & C & D & E & F \\
+    \midrule
+    纯储能节省 & 0 & 0 & 0 & $9.74\times10^6$ & $1.37\times10^7$ & $1.60\times10^7$ \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q3_result}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{问题三系统级运行指标（无储能 $N^{\mathrm{A}}$ 与有储能 $S^{\mathrm{A}}$）}
+  \begin{tabularx}{\textwidth}{lCC}
+    \toprule
+    指标 & 无储能 $N^{\mathrm{A}}$ & 有储能 $S^{\mathrm{A}}$ \\
+    \midrule
+    总系统成本（$10^8$ 元） & $-4.198$ & $-4.592$ \\
+    总碳排（tCO$_2$） & 8.85 & 0 \\
+    峰值毛购电（MW） & 31.6 & 0 \\
+    峰值净购电（MW） & $-82.4$ & $-413.5$ \\
+    平均绝对爬坡（MW） & 29.29 & 0.41 \\
+    新能源利用率 & 0.68 & 0.70 \\
+    储能吞吐量（MWh） & 0 & $3.46\times10^5$ \\
+    储能效率损耗（MWh） & 0 & $2.32\times10^4$ \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q3_add}
+\end{table}
+
+表\ref{tab:q3_add} 给出系统级运行指标：储能把峰值毛购电由 $31.6$ MW 压至 $0$（碳排归零的直接体现），把峰值净购电由 $-82.4$ 进一步拉到 $-413.5$ MW（外送套利显著增强），并把平均绝对爬坡由 $29.29$ MW 降至 $0.41$ MW——储能"削峰填谷"大幅平滑了购送电时序。副产出储能充放吞吐 $3.46\times10^5$ MWh 对应效率损耗 $2.32\times10^4$ MWh（约吞吐量的 $6.7\%$），在能量守恒残差 $10^{-13}$ 级别下精确闭合。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/result_q3_storage_value.png}
+  \caption{分区域储能价值（ABC 无外送故为零；DEF 外送时序套利）}
+  \label{fig:result_q3}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/process_q3_soc_and_mc.png}
+  \caption{区域 F 储能 48h 代表窗口：电价/新能源裕度/充放电/SOC}
+  \label{fig:process_q3}
+\end{figure}

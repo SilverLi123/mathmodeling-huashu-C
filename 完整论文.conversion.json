@@ -1,0 +1,12 @@
+{
+  "schema": "latex2docx.conversion.v1",
+  "source_main": "完整论文-LaTeX/main.tex",
+  "converter": "pandoc 3.6.3 (latex->docx,math=OMML)",
+  "latex_pdf_sha256": "77860af0f21c8d00b7e07f63d72102715085aa9613bb1358af58c3ebb98e7434",
+  "docx_sha256": "170f724404d51b0becd5705df8f23c3c904c13940c28eda79ac7f842f5d8e41f",
+  "warnings": [
+    "摘要/参考文献小节标题由pandoc默认样式生成",
+    "TikZ流程图仅存于LaTeX PDF，docx含其余10幅PNG",
+    "ctex字体排版由Word样式替代，内容数据结论一致"
+  ]
+}

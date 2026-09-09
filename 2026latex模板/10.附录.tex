@@ -1,0 +1,33 @@
+
+\makeatletter
+\let\@oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{}
+\section*{附录}
+\let\addcontentsline\@oldaddcontentsline
+\makeatother
+
+\begin{table}[H]
+  \centering
+  \caption{支撑材料文件列表}
+  \label{tab:appendix}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{LX}
+    \toprule
+    文件 & 说明 \\
+    \midrule
+    问题一\_xxx.py & 问题1求解代码 \\
+    xxx.png & xxx图 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% ============================================================
+% 源程序代码（2026规范第五条：附录应包括建模所用到的全部完整、可运行的
+% 源程序代码，含EXCEL、SPSS等软件的交互命令；若确实没有用到程序，请将
+% 本节替换为“本论文没有用到程序”；若没有支撑材料，请注明“本论文没有支撑材料”）
+% 引入代码文件可用：\lstinputlisting[language=Python]{代码文件路径}
+\subsection*{源程序代码}
+
+\begin{lstlisting}[language=Python]
+# 请在此处粘贴完整、可运行的源程序代码
+\end{lstlisting}

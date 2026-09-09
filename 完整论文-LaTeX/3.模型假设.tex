@@ -1,0 +1,13 @@
+\section{模型假设}
+
+为聚焦核心矛盾并保证模型可解、可验证，本文做出如下假设：
+
+\begin{itemize}[itemindent=2em]
+\item \textbf{假设1（非抢占与整段执行）：} 任务一旦开始必须连续运行至完成，同一任务不可拆分，GPU 需求量在运行期间恒定。
+\item \textbf{假设2（线性功率映射）：} 区域 IT 负荷按 $P_{\mathrm{IT}}=\sum_{i} g_i\,\alpha_{i,t}^{\mathrm{start}}\,p_{k_i}$ 聚合，其中 $g_i$ 为任务 GPU 数，$\alpha$ 为重叠系数，$p_{k_i}$ 为任务类型单位 GPU 功率；设施负荷 $L=\mathrm{PUE}\times(P_{\mathrm{IT}}+P_{\mathrm{NonAI}})$。
+\item \textbf{假设3（电价与碳强度外生）：} 逐时购电价、外送价与碳强度为给定外生参数，单个区域的行为不改变电价。
+\item \textbf{假设4（储能线性化）：} 储能充放电效率为常数，忽略自放电与容量衰减，SOC 按线性递归 $SOC_t=SOC_{t-1}+\eta_c C_t - D_t/\eta_d$ 演化，并满足存架容量、最小 SOC、充放电功率与终端 SOC 守恒约束。
+\item \textbf{假设5（区域独立结算+外送上限）：} 各区域电力自平衡，外送功率受 $X_r^{\max}$ 上限约束；A/B/C 区外送上限为 0，仅 D/E/F 可外送。
+\item \textbf{假设6（离散小时与半开区间）：} 电力结算以整小时为粒度，任务与小时的占用按半开区间重叠时长线性折算。
+\item \textbf{假设7（预测不替代真实）：} 预测仅用于支撑性分析，调度与结算严格使用任务真实到达数据。
+\end{itemize}

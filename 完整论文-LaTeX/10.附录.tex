@@ -1,0 +1,44 @@
+\makeatletter
+\let\@oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{}
+\section*{附录}
+\let\addcontentsline\@oldaddcontentsline
+\makeatother
+
+\begin{table}[H]
+  \centering
+  \caption{支撑材料文件列表}
+  \label{tab:appendix}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{LX}
+    \toprule
+    文件 & 说明 \\
+    \midrule
+    src/io\_data.py & 数据读取与锚点校验 \\
+    src/energy\_model.py & 能源结算（无储能解析/LP + 储能 LP-first/MILP） \\
+    src/task\_model.py & 任务调度与 GPU 容量约束 \\
+    src/forecast.py & 到达需求岭回归预测 \\
+    src/q1.py--q4.py & 四个子问题求解入口 \\
+    src/scenarios.py & 情景与 $\rho$ 扫描 \\
+    main.py & 求解链顶部入口（可复现运行） \\
+    figures/*.png & raw/process/result 三类共 17 幅候选图 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection*{附录A 源程序代码（核心结算与调度）}
+
+\begin{lstlisting}[language=Python]
+# 无储能电力平衡的三段边际成本（简化核心，与正文式 6 对应）
+def no_storage_mc(L, ren, sell, buy, export_cap):
+    surplus = ren - L
+    if surplus > export_cap:        # 弃电区段
+        return 0.0
+    if surplus > 0:                 # 外送区段
+        return sell
+    return buy                      # 购电区段
+
+# 逐区域储能 LP-first：目标最小化购电成本 - 外送收益
+# 约束：电力平衡 / 购售上限 / SOC 递归 / 端 SOC 守恒
+# 完整可运行代码见支撑材料 src/ 目录
+\end{lstlisting}

@@ -1,0 +1,25 @@
+# Local development and validation logs
+work/
+math-modeling-skill/
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+
+# Local virtual environments and editor state
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Temporary build products
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Scenario scratch outputs
+results/runs/scenarios/_tmp/

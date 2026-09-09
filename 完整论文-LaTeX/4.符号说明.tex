@@ -1,0 +1,40 @@
+\section{符号说明}
+
+本文使用的主要符号及其含义如表\ref{tab:符号说明}所示。
+
+\begin{longtable}{>{\centering\arraybackslash}p{0.22\textwidth}>{\centering\arraybackslash}p{0.72\textwidth}}
+  \caption{符号说明}
+  \label{tab:符号说明} \\
+  \toprule
+  符号 & 说明 \\
+  \midrule
+  \endfirsthead
+  \caption{符号说明（续）} \\
+  \toprule
+  符号 & 说明 \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  $r\in\{A,B,C,D,E,F\}$ & 区域索引；$h=0,1,\dots,2406$ 小时索引 \\
+  $k\in\{\mathrm{train},\mathrm{batch},\mathrm{rt}\}$ & 任务类型（AI 训练/批量推理/实时推理） \\
+  $i$ & 任务索引；$a_i$ 到达小时；$d_i$ 时长；$g_i$ GPU 需求 \\
+  $s_i,\,R_i$ & 任务开始小时与指派区域 \\
+  $l_{r r'}$ & $r\to r'$ 的网络时延（ms）；$L_k^{\max}$ 类型时延上限 \\
+  $A_r$ & 区域可用 GPU 数；$\alpha_{i h}$ 占用重叠系数 \\
+  $P_{\mathrm{IT},rh}$ & 区域 $r$ 小时 $h$ 的 AI IT 功率（MW） \\
+  $L_{rh}$ & 设施负荷；$R_{rh}$ 可用新能源；$X_r^{\max}$ 外送上限 \\
+  $B_{rh},\,S_{rh},\,Q_{rh}$ & 购电、外送、弃电功率；总充电 $C_{rh}$ \\
+  $R^{\mathrm{load}}_{rh},\,R^{\mathrm{ch}}_{rh}$ & 新能源直供/充电分流 \\
+  $R^{\mathrm{sell}}_{rh},\,R^{\mathrm{curt}}_{rh}$ & 新能源外送/弃电分流（守恒 $R^{\mathrm{load}}+R^{\mathrm{ch}}+R^{\mathrm{sell}}+R^{\mathrm{curt}}=R$） \\
+  $G^{\mathrm{load}}_{rh},\,G^{\mathrm{ch}}_{rh},\,D_{rh}$ & 电网供负荷/电网充电/储能放电；$B=G^{\mathrm{load}}+G^{\mathrm{ch}}$、$C=R^{\mathrm{ch}}+G^{\mathrm{ch}}$ \\
+  $\pi_{rh}^b,\,\pi_{rh}^s$ & 购电价与外送价（元/MWh） \\
+  $c_{rh}$ & 碳强度（tCO$_2$/MWh） \\
+  $SOC_{rh}$ & 储能荷电状态；$\eta_c,\eta_d$ 充放电效率 \\
+  $F$ & 总成本目标 \\
+  $E$ & 总碳排放 \\
+  $\lambda_{rh}$ & 三段边际成本（弃电 0 / 外送 $\pi^s$ / 购电 $\pi^b$） \\
+  $\varepsilon_H$ & 任务迁移额外时延上限（ms）；$\ell_i$ 任务端到端时延 \\
+  $\varepsilon$ & 碳预算上限（$\varepsilon$-约束法）；$\rho$ 新能源规模缩减系数 \\
+  $F_{00},F_{10},F_{01},F_{11}$ & 四格策略价值；$I=F_{10}+F_{01}-F_{11}-F_{00}$ 交互项（$I>0$ 互补、$I<0$ 替代） \\
+\end{longtable}

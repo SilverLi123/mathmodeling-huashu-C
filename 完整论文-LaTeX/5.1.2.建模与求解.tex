@@ -1,0 +1,65 @@
+\subsubsection{问题一模型建立}
+
+\noindent\textbf{预测模型。} 对第 $m$ 条到达 GPU 需求序列 $y_1,\dots,y_T$，构造仅用过去信息的特征矩阵 $X$，训练岭回归\cite{hoerl1970ridge}
+\begin{equation}
+\hat{\boldsymbol\beta}=\arg\min_{\boldsymbol\beta}\ \lVert \boldsymbol y-\boldsymbol X\boldsymbol\beta\rVert_2^2+\lambda\lVert\boldsymbol\beta\rVert_2^2,
+\end{equation}
+其中特征含历史均值 $m_t$、$24/168$ 小时滚动均值、滞后项与谐波。回测在 13 个起点（$t\in\{2208,\dots,2328\}$）逐折预测后 24 小时；若模型平均 MAE 优于训练均值基准则选用岭回归，否则退回均值基准，实现小样本高噪声序列下的自适应选型。
+
+\noindent\textbf{调度模型。} 以全部可行排程为决策，最小化加权等待与网络时延：
+\begin{equation}
+\min_{\{s_i,R_i\}} \ \sum_i \bigl(w_1(s_i-a_i)+w_2\, l_{a_i,R_i}\bigr),
+\end{equation}
+约束为（非抢占、到达、截止、区域时延可达、GPU 容量）：
+\begin{equation}
+s_i\ge a_i,\quad s_i+d_i\le 2406,\quad l_{a_i,R_i}\le L_{k_i}^{\max},
+\end{equation}
+\begin{equation}
+\sum_{i:R_i=r} g_i\,\alpha_{it}^{\mathrm{start}}\le A_r,\quad \forall r,t.
+\end{equation}
+由于容量充裕，贪心策略（实时任务按到达时刻优先、弹性任务按"到达时刻+工作量"排序后选择最早可行且最低时延区域）即可逼近字典序最优：总等待 $86$ h（约 $1.7\times10^{-3}$ h/任务）、迁移率 $0$、平均时延 $5$ ms 均接近各自下界。
+
+\subsubsection{问题一模型求解}
+
+预测指标与调度结果分别如表\ref{tab:q1_forecast}、表\ref{tab:q1_sched}所示。岭回归相较均值基准提升约 $5\%$（WAPE $0.623$ vs $0.657$，MAE/RMSE 亦全面占优），说明本文模型族与有限历史长度下到达负荷的可预测增益有限，问题价值主要落在真实到达后的调度。图\ref{fig:process_q1}左半给出关键区域的全时域 GPU·h 容量利用率（约 $40\%$、远低于容量），右半展示 RegionD·AITraining 序列在最终测试窗的预测—真实对比；图\ref{fig:result_q1}为最后 24 小时（2376--2399 到达、2400--2405 收尾）甘特图。能源结算得到总成本 $-4.198\times10^8$ 元、碳排 $8.85$ tCO$_2$，碳排几乎全部来自区域 F 在 2400 时刻的 $31.6$ MW 净负荷缺口所引发的少量购电。
+
+\begin{table}[H]
+  \centering
+  \caption{问题一预测指标（2376--2399，$n=432$）}
+  \begin{tabularx}{\textwidth}{CCCC}
+    \toprule
+    模型 & MAE & RMSE & WAPE \\
+    \midrule
+    岭回归（自适应） & 25.16 & 49.95 & 0.623 \\
+    均值基准 & 26.52 & 53.79 & 0.657 \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q1_forecast}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{问题一基础调度指标（50000 任务）}
+  \begin{tabularx}{\textwidth}{CCCCC}
+    \toprule
+    总等待/h & 平均时延/ms & 迁移率 & GPU 利用率 & 约束违例 \\
+    \midrule
+    86（$1.7\times10^{-3}$/任务） & 5.0 & 0\% & $\approx$40\% & 0 \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q1_sched}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/process_q1_util_and_forecast.png}
+  \caption{问题一：关键区域逐时 GPU 利用率与 RegionD 预测对比}
+  \label{fig:process_q1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/result_q1_gantt.png}
+  \caption{最后 24 小时收尾调度甘特图（分区域，多色=任务类型）}
+  \label{fig:result_q1}
+\end{figure}

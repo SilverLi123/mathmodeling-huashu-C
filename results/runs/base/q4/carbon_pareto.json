@@ -1,0 +1,56 @@
+[
+ {
+  "epsilon": 0.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 1.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 5.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 10.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 50.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 100.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 300.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": 1000.0,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ },
+ {
+  "epsilon": null,
+  "status": "optimal",
+  "cost": -459205820.6400476,
+  "carbon": 0.0
+ }
+]

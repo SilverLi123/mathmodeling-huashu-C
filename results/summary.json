@@ -1,0 +1,148 @@
+{
+ "elapsed_s": 360.18162775039673,
+ "q1": "OK",
+ "q3_system": {
+  "N_cost": -419820327.7393099,
+  "N_carbon": 8.850562571909007,
+  "N_util": 0.6791498911659758,
+  "S_cost": -459217331.8185788,
+  "S_carbon": 3.6149326054495262e-06,
+  "S_util": 0.6951416524090978,
+  "d_cost": -39397004.07926887,
+  "d_carbon": -8.850558956976402,
+  "storage_saving": 39397004.07926887
+ },
+ "q4_interaction": {
+  "I": -24391970.070492923,
+  "note": "可行策略点估计，任务侧无有效全问题下界，不报告认证区间",
+  "formula": "F10+F01-F11-F00",
+  "F11_incumbent_source": "F01(固定任务+储能)"
+ },
+ "q2_budgets": {
+  "20.0": "OK",
+  "80.0": "OK",
+  "150.0": "OK"
+ },
+ "q2_carbon_envelope": {
+  "points": [
+   {
+    "label": "N(不迁移)",
+    "cost": -419796560.48384196,
+    "carbon": 8.850562453334021
+   },
+   {
+    "label": "T20",
+    "cost": -431652645.1800108,
+    "carbon": 109.67869339648728
+   },
+   {
+    "label": "T80",
+    "cost": -440656230.49362886,
+    "carbon": 515.8763836202261
+   },
+   {
+    "label": "T150",
+    "cost": -444188530.5543349,
+    "carbon": 419.58925369524775
+   }
+  ],
+  "pareto": [
+   {
+    "label": "T150",
+    "cost": -444188530.5543349,
+    "carbon": 419.58925369524775
+   },
+   {
+    "label": "T20",
+    "cost": -431652645.1800108,
+    "carbon": 109.67869339648728
+   },
+   {
+    "label": "N(不迁移)",
+    "cost": -419796560.48384196,
+    "carbon": 8.850562453334021
+   }
+  ],
+  "envelope": [
+   {
+    "epsilon": 10.0,
+    "status": "OK",
+    "cost": -419796560.48384196,
+    "argmin": "N(不迁移)"
+   },
+   {
+    "epsilon": 50.0,
+    "status": "OK",
+    "cost": -419796560.48384196,
+    "argmin": "N(不迁移)"
+   },
+   {
+    "epsilon": 100.0,
+    "status": "OK",
+    "cost": -419796560.48384196,
+    "argmin": "N(不迁移)"
+   },
+   {
+    "epsilon": 300.0,
+    "status": "OK",
+    "cost": -431652645.1800108,
+    "argmin": "T20"
+   },
+   {
+    "epsilon": 500.0,
+    "status": "OK",
+    "cost": -444188530.5543349,
+    "argmin": "T150"
+   },
+   {
+    "epsilon": 800.0,
+    "status": "OK",
+    "cost": -444188530.5543349,
+    "argmin": "T150"
+   },
+   {
+    "epsilon": 1000.0,
+    "status": "OK",
+    "cost": -444188530.5543349,
+    "argmin": "T150"
+   }
+  ]
+ },
+ "q3_additional": {
+  "no_storage": {
+   "peak_net_purchase_MW": -82.40380291000008,
+   "peak_gross_purchase_MW": 31.597867090000022,
+   "mean_abs_ramp_MW": 29.29024803958205,
+   "ren_util": 0.6791498911659758,
+   "storage_throughput_MWh": 0.0,
+   "efficiency_loss_MWh": 0.0
+  },
+  "with_storage": {
+   "peak_net_purchase_MW": -413.52420041662526,
+   "peak_gross_purchase_MW": 2.17964646134397e-06,
+   "mean_abs_ramp_MW": 0.4063945242318592,
+   "ren_util": 0.6951416524090978,
+   "storage_throughput_MWh": 346196.844659117,
+   "efficiency_loss_MWh": 23237.41492803165
+  },
+  "renewable_available_MWh": 11550768.36
+ },
+ "scenarios": [
+  {
+   "name": "task_migration_gain_decays_F00-F10",
+   "interval": [
+    0.6,
+    0.5
+   ],
+   "note": "任务迁移独立增益(≥0)随新能源供给下降而衰减至 0"
+  },
+  {
+   "name": "storage_saving_F00-F01",
+   "interval": [
+    null,
+    null
+   ],
+   "note": "储能节省恒正(区间 None=未翻转)"
+  }
+ ]
+}

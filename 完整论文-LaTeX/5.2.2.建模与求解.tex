@@ -1,0 +1,58 @@
+\subsubsection{问题二模型建立}
+
+\noindent\textbf{无储能电力结算。} 给定设施负荷 $L_{rh}$ 与可用新能源 $R_{rh}$，新能源先直供负荷，余量先外送、后弃电，缺额由电网购电补足，且外送仅来源于新能源，逐时电力平衡为
+\begin{equation}
+B_{rh}+R_{rh}=L_{rh}+S_{rh}+Q_{rh},\qquad 0\le B_{rh}\le M_r,\quad 0\le S_{rh}\le X_r^{\max},\quad Q_{rh}\ge 0,
+\end{equation}
+碳排与成本的边际意义由三段单位成本给出：
+\begin{equation}
+\lambda_{rh}=\begin{cases}0,&R_{rh}-L_{rh}>X_r^{\max}\ \text{(弃电)}\\
+\pi_{rh}^s,&0<R_{rh}-L_{rh}\le X_r^{\max}\ \text{(外送)}\\
+\pi_{rh}^b,&L_{rh}>R_{rh}\ \text{(购电)}\end{cases}
+\end{equation}
+
+\noindent\textbf{代价引导的任务重指派。} 一个任务放在 $(R_i,s_i)$ 对成本的边际贡献近似为
+\begin{equation}
+\mathrm{Score}_i(R,s)=g_i\,p_{k_i}\,\mathrm{PUE}_R\sum_t \alpha_{i t}^{\mathrm{start}}\,\lambda_{R t}.
+\end{equation}
+由于 $\lambda$ 与负荷耦合，本文先冻结 $\lambda$ 做候选内（到达邻域+弃电区段定向）最小化 $\mathrm{Score}$ 的贪婪改进，仅当目标槽容量可行且 Score 严格降低时移动；随后用新负荷重算 $\lambda$ 迭代两轮；最终以完整结算复算真实成本，保证结论不依赖线性化身价。
+
+\noindent\textbf{碳与成本的 $\varepsilon$-约束。} 采用 $\varepsilon$-约束法\cite{mavrotas2009eps} 写成
+\begin{equation}
+\min_{\{s_i,R_i\}}\ F\quad\text{s.t.}\quad E\le \varepsilon,\;\text{式(2)--(4)},
+\end{equation}
+其中 $F=\sum_{r,h}(\pi_{rh}^b B_{rh}-\pi_{rh}^s S_{rh})$，$E=\sum_{r,h}c_{rh}B_{rh}$。
+
+\subsubsection{问题二模型求解}
+
+以问题一可行基线为 $N$，以额外时延上限 $\varepsilon_H\in\{20,80,150\}$ ms 收紧重指派目的地（逐任务始终满足 $\ell_i\le\min\{L_{k_i}^{\max},\varepsilon_H\}$，实时任务仍到达即开工），得到成本—时延—碳折中（表\ref{tab:q2_trade}，图\ref{fig:process_q2}）。任务迁移可提升外送收益，成本由 $-4.198\times10^8$ 元单调降至 $-4.442\times10^8$ 元（增利 $2.44\times10^7$ 元）；碳排随预算先升后落（$8.85\to94\to777\to496$ tCO$_2$），$80$ ms 预算下为追逐低价时段购电使碳排最高（$777$ t），$150$ ms 预算借助更宽重指派空间与 incumbent 起点在进一步降本的同时把碳排回落至 $496$ t。无储能下成本与碳为真实权衡，式 8 的 $\varepsilon$-约束与 6.3 节的方案族下包络对此定量刻画；含储能情形（问题三/四）通过时序搬运同时实现最低成本与零碳。迁移矩阵（图\ref{fig:result_q2}左）显示迁移主要发生在 D/E/F 三区内部弹性任务，方向为"弃电时段吸收负荷"。
+
+\begin{table}[H]
+  \centering
+  \caption{问题二成本—时延—碳折中}
+  \begin{tabularx}{\textwidth}{CCCCC}
+    \toprule
+    时延预算/ms & 成本/元 & 碳/tCO$_2$ & 平均时延/ms & 迁移率 \\
+    \midrule
+    $N$（本地基线） & $-4.198\times10^8$ & 8.85 & 5.0 & 0\% \\
+    20 & $-4.321\times10^8$ & 94 & 5.6 & 4.4\% \\
+    80 & $-4.412\times10^8$ & 777 & 8.2 & 9.0\% \\
+    150 & $-4.442\times10^8$ & 496 & 8.6 & 9.4\% \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q2_trade}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/process_q2_tradeoff.png}
+  \caption{问题二：成本—时延与成本—碳折中（N 与 T20/T80/T150）}
+  \label{fig:process_q2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/result_q2_migration_and_effect.png}
+  \caption{问题二：迁移任务去向比例（去对角、行归一，150ms）与购电量对比}
+  \label{fig:result_q2}
+\end{figure}

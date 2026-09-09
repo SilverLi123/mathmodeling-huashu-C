@@ -1,0 +1,12 @@
+\subsubsection{问题三具体分析}
+
+问题三在不跨区域调度、使用储能的条件下，对固定附件负荷（$L^{\mathrm{fix}}=PUE\times(L^{\mathrm{BaseAI}}+L^{\mathrm{NonAI}})$）优化充放电（储能时序套利的经济价值与既有评估一致\cite{sioshansi2009storage}）。由于各区域电力自平衡且储能不跨区，问题可按区域分解为六个独立的储能调度子问题。充放电同时进行在成本意义上等价于"套利泡沫"（同一时刻 $B$ 与 $S$ 可抵消但受互斥限制），故先以纯效率变量 LP 求解（HiGHS 内点/单纯形\cite{huangfu2018parallelizing}），若最优解出现同时充放再退化为 MILP 强制互斥，并做二次最小化吞吐以消除零价值循环。
+
+首先由附件负荷构造逐区固定设施负荷；接着对每个区域单独求解储能 LP-first，并核对 SOC 递归残差与终端 SOC 守恒；然后合并六个区域得到系统级成本、碳排与新能源利用率；最后按区域分解储能价值。图\ref{fig:raw_q3}展示固定负荷与可用新能源的失配，其中唯一净负荷缺口在区域 F 的 2400 时刻。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/raw_q3_load_vs_renewable.png}
+  \caption{六区域新能源裕度 $R-L$ 与 RegionF@2400 缺口放大（唯一负裕度）}
+  \label{fig:raw_q3}
+\end{figure}

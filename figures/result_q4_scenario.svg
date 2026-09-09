@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="321.408pt" viewBox="0 0 518.4 321.408" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-08T23:42:02.805280</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 321.408 
+L 518.4 321.408 
+L 518.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 38.33524 304.90776 
+L 256.19976 304.90776 
+L 256.19976 13.88024 
+L 38.33524 13.88024 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 48.238173 13.88024 
+L 89.934732 13.88024 
+L 89.934732 266.063347 
+L 48.238173 266.063347 
+z
+" clip-path="url(#pf0d5a8555b)" style="fill: #0072b2"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 100.358871 13.88024 
+L 142.05543 13.88024 
+L 142.05543 280.630213 
+L 100.358871 280.630213 
+z
+" clip-path="url(#pf0d5a8555b)" style="fill: #e69f00"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 152.47957 13.88024 
+L 194.176129 13.88024 
+L 194.176129 291.049307 
+L 152.47957 291.049307 
+z
+" clip-path="url(#pf0d5a8555b)" style="fill: #009e73"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 204.600268 13.88024 
+L 246.296827 13.88024 
+L 246.296827 291.049307 
+L 204.600268 291.049307 
+z
+" clip-path="url(#pf0d5a8555b)" style="fill: #d55e00"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m5e819e4117" d="M 0 0 
+L 0 3 
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5e819e4117" x="69.086452" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="69.086452" y="317.42776" transform="rotate(-0 69.086452 317.42776)">F00</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m5e819e4117" x="121.207151" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="121.207151" y="317.42776" transform="rotate(-0 121.207151 317.42776)">F10</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m5e819e4117" x="173.327849" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="173.327849" y="317.42776" transform="rotate(-0 173.327849 317.42776)">F01</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5e819e4117" x="225.448548" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="225.448548" y="317.42776" transform="rotate(-0 225.448548 317.42776)">F11</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <defs>
+       <path id="m7207a5c613" d="M 0 0 
+L -3 0 
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m7207a5c613" x="38.33524" y="258.915867" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.83524" y="261.925867" transform="rotate(-0 31.83524 261.925867)">-400</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m7207a5c613" x="38.33524" y="197.65696" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.83524" y="200.66696" transform="rotate(-0 31.83524 200.66696)">-300</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m7207a5c613" x="38.33524" y="136.398053" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.83524" y="139.408053" transform="rotate(-0 31.83524 139.408053)">-200</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m7207a5c613" x="38.33524" y="75.139147" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.83524" y="78.149147" transform="rotate(-0 31.83524 78.149147)">-100</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m7207a5c613" x="38.33524" y="13.88024" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="31.83524" y="16.89024" transform="rotate(-0 31.83524 16.89024)">0</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 8px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="9.88024" y="159.394" transform="rotate(-90 9.88024 159.394)">总成本 百万元</text>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 38.33524 304.90776 
+L 38.33524 13.88024 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 38.33524 304.90776 
+L 256.19976 304.90776 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="38.33524" y="9.88024" transform="rotate(-0 38.33524 9.88024)">短时新能源缺口</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_9">
+    <path d="M 297.53524 304.90776 
+L 515.39976 304.90776 
+L 515.39976 13.88024 
+L 297.53524 13.88024 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 307.438173 13.88024 
+L 349.134732 13.88024 
+L 349.134732 267.25853 
+L 307.438173 267.25853 
+z
+" clip-path="url(#p0c9f26e5f2)" style="fill: #0072b2"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 359.558871 13.88024 
+L 401.25543 13.88024 
+L 401.25543 281.769487 
+L 359.558871 281.769487 
+z
+" clip-path="url(#p0c9f26e5f2)" style="fill: #e69f00"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 411.67957 13.88024 
+L 453.376129 13.88024 
+L 453.376129 291.049307 
+L 411.67957 291.049307 
+z
+" clip-path="url(#p0c9f26e5f2)" style="fill: #009e73"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 463.800268 13.88024 
+L 505.496827 13.88024 
+L 505.496827 291.049307 
+L 463.800268 291.049307 
+z
+" clip-path="url(#p0c9f26e5f2)" style="fill: #d55e00"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_5">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m5e819e4117" x="328.286452" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="328.286452" y="317.42776" transform="rotate(-0 328.286452 317.42776)">F00</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m5e819e4117" x="380.407151" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="380.407151" y="317.42776" transform="rotate(-0 380.407151 317.42776)">F10</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5e819e4117" x="432.527849" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="432.527849" y="317.42776" transform="rotate(-0 432.527849 317.42776)">F01</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m5e819e4117" x="484.648548" y="304.90776" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="484.648548" y="317.42776" transform="rotate(-0 484.648548 317.42776)">F11</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="272.559151" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="275.569151" transform="rotate(-0 291.03524 275.569151)">-300</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="229.445999" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="232.455999" transform="rotate(-0 291.03524 232.455999)">-250</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="186.332847" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="189.342847" transform="rotate(-0 291.03524 189.342847)">-200</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="143.219696" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="146.229696" transform="rotate(-0 291.03524 146.229696)">-150</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="100.106544" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="103.116544" transform="rotate(-0 291.03524 103.116544)">-100</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="56.993392" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="60.003392" transform="rotate(-0 291.03524 60.003392)">-50</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m7207a5c613" x="297.53524" y="13.88024" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 7px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: end" x="291.03524" y="16.89024" transform="rotate(-0 291.03524 16.89024)">0</text>
+     </g>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 8px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="269.08024" y="159.394" transform="rotate(-90 269.08024 159.394)">总成本 百万元</text>
+    </g>
+   </g>
+   <g id="patch_14">
+    <path d="M 297.53524 304.90776 
+L 297.53524 13.88024 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 297.53524 304.90776 
+L 515.39976 304.90776 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8px; font-family: 'PingFang SC', 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="297.53524" y="9.88024" transform="rotate(-0 297.53524 9.88024)">外送价×0.7、购电价×1.3</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf0d5a8555b">
+   <rect x="38.33524" y="13.88024" width="217.86452" height="291.02752"/>
+  </clipPath>
+  <clipPath id="p0c9f26e5f2">
+   <rect x="297.53524" y="13.88024" width="217.86452" height="291.02752"/>
+  </clipPath>
+ </defs>
+</svg>

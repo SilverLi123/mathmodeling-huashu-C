@@ -1,0 +1,181 @@
+{
+ "system": {
+  "N_cost": -419820327.7393099,
+  "N_carbon": 8.850562571909007,
+  "N_util": 0.6791498911659758,
+  "S_cost": -459217331.8185788,
+  "S_carbon": 3.6149326054495262e-06,
+  "S_util": 0.6951416524090978,
+  "d_cost": -39397004.07926887,
+  "d_carbon": -8.850558956976402,
+  "storage_saving": 39397004.07926887
+ },
+ "per_region": {
+  "RegionA": {
+   "N": {
+    "cost": 0.0,
+    "carbon": 0.0,
+    "peak_net_MW": 0.0,
+    "mean_abs_ramp_MW": 0.0,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 0.0
+   },
+   "S": {
+    "cost": 0.001,
+    "carbon": 1.4832494169445717e-06,
+    "peak_net_MW": 2.17964646134397e-06,
+    "mean_abs_ramp_MW": 1.8118424450074565e-09,
+    "purchase_MWh": 2.17964646134397e-06,
+    "sold_MWh": 0.0
+   }
+  },
+  "RegionB": {
+   "N": {
+    "cost": 0.0,
+    "carbon": 0.0,
+    "peak_net_MW": 0.0,
+    "mean_abs_ramp_MW": 0.0,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 0.0
+   },
+   "S": {
+    "cost": 0.001,
+    "carbon": 1.3425986341293663e-06,
+    "peak_net_MW": 2.1749532385053724e-06,
+    "mean_abs_ramp_MW": 1.8079411791399604e-09,
+    "purchase_MWh": 2.1749532385053724e-06,
+    "sold_MWh": 0.0
+   }
+  },
+  "RegionC": {
+   "N": {
+    "cost": 0.0,
+    "carbon": 0.0,
+    "peak_net_MW": 0.0,
+    "mean_abs_ramp_MW": 0.0,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 0.0
+   },
+   "S": {
+    "cost": 0.001,
+    "carbon": 7.890845543755881e-07,
+    "peak_net_MW": 1.4936296694597542e-06,
+    "mean_abs_ramp_MW": 1.2415874226598122e-09,
+    "purchase_MWh": 1.4936296694597542e-06,
+    "sold_MWh": 0.0
+   }
+  },
+  "RegionD": {
+   "N": {
+    "cost": -133039578.07081133,
+    "carbon": 0.0,
+    "peak_net_MW": -52.89400042662396,
+    "mean_abs_ramp_MW": 8.748353672885411,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 395221.70040426624
+   },
+   "S": {
+    "cost": -142783136.4167205,
+    "carbon": 0.0,
+    "peak_net_MW": -179.31065862270967,
+    "mean_abs_ramp_MW": 0.000573018601238847,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 433259.3106586227
+   }
+  },
+  "RegionE": {
+   "N": {
+    "cost": -140473204.72832286,
+    "carbon": 0.0,
+    "peak_net_MW": -23.393750000000068,
+    "mean_abs_ramp_MW": 11.41245012330299,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 470691.9054333318
+   },
+   "S": {
+    "cost": -154169242.72126856,
+    "carbon": 0.0,
+    "peak_net_MW": -114.20000041662513,
+    "mean_abs_ramp_MW": 0.17829330956448808,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 529272.6131488022
+   }
+  },
+  "RegionF": {
+   "N": {
+    "cost": -146307544.9401757,
+    "carbon": 8.850562571909007,
+    "peak_net_MW": 31.597867090000022,
+    "mean_abs_ramp_MW": 12.214378062031736,
+    "purchase_MWh": 31.597867090000022,
+    "sold_MWh": 464354.1627569316
+   },
+   "S": {
+    "cost": -162264952.68358973,
+    "carbon": 0.0,
+    "peak_net_MW": -119.32420000000013,
+    "mean_abs_ramp_MW": 0.22752819120476123,
+    "purchase_MWh": 0.0,
+    "sold_MWh": 529183.9617855574
+   }
+  }
+ },
+ "branches": {
+  "RegionA": "lp_first+secondary",
+  "RegionB": "lp_first+secondary",
+  "RegionC": "lp_first+secondary",
+  "RegionD": "lp_first+secondary",
+  "RegionE": "lp_first+secondary",
+  "RegionF": "lp_first+secondary"
+ },
+ "storage": {
+  "RegionA": {
+   "charge_MWh": 0.0,
+   "discharge_MWh": 0.0,
+   "loss_MWh": 0.0,
+   "soc_final": 157.5,
+   "soc_min": 157.5,
+   "soc_terminal_ok": true
+  },
+  "RegionB": {
+   "charge_MWh": 0.0,
+   "discharge_MWh": 0.0,
+   "loss_MWh": 0.0,
+   "soc_final": 144.0,
+   "soc_min": 144.0,
+   "soc_terminal_ok": true
+  },
+  "RegionC": {
+   "charge_MWh": 0.0,
+   "discharge_MWh": 0.0,
+   "loss_MWh": 0.0,
+   "soc_final": 135.0,
+   "soc_min": 135.0,
+   "soc_terminal_ok": true
+  },
+  "RegionD": {
+   "charge_MWh": 43511.33636965965,
+   "discharge_MWh": 38037.61025435646,
+   "loss_MWh": 5473.726115303183,
+   "soc_final": 405.0,
+   "soc_min": 90.0,
+   "soc_terminal_ok": true
+  },
+  "RegionE": {
+   "charge_MWh": 67010.64712362213,
+   "discharge_MWh": 58580.70771547047,
+   "loss_MWh": 8429.939408151664,
+   "soc_final": 370.0,
+   "soc_min": 82.0,
+   "soc_terminal_ok": true
+  },
+  "RegionF": {
+   "charge_MWh": 74195.14630029253,
+   "discharge_MWh": 64861.39689571572,
+   "loss_MWh": 9333.7494045768,
+   "soc_final": 382.5,
+   "soc_min": 85.0,
+   "soc_terminal_ok": true
+  }
+ }
+}

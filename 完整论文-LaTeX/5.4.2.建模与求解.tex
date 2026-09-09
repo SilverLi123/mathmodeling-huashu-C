@@ -1,0 +1,52 @@
+\subsubsection{问题四模型建立}
+
+四格价值定义为同一结算口径下的最优/可行成本：
+\begin{equation}
+F_{00}=\min_{S\in\emptyset}\phi(L^{\mathrm{fix}}),\quad F_{10}=\min_{S}\phi(L^{\mathrm{task}}),
+\end{equation}
+\begin{equation}
+F_{01}=\min_{\mathrm{storage}}\psi(L^{\mathrm{fix}}),\quad F_{11}=\min_{\mathrm{task},\mathrm{storage}}\psi(L^{\mathrm{task}}),
+\end{equation}
+其中 $\phi$ 为无储能结算（式 5--8）、$\psi$ 为含储能结算（式 9--12）。交互项
+\begin{equation}
+I=F_{10}+F_{01}-F_{11}-F_{00}.
+\end{equation}
+情景侧以 $\rho$ 缩放可用新能源 $R'_{r h}=\rho R_{r h}$，对四格重算并记录"任务节省 $F_{00}-F_{10}$"与"储能节省 $F_{00}-F_{01}$"随 $\rho$ 的变化。
+
+\subsubsection{问题四模型求解}
+
+四格结果如表\ref{tab:q4_cell}、图\ref{fig:result_q4}所示：联合策略总成本 $F_{11}=F_{01}=-4.592\times10^8$ 元（incumbent 取"固定任务+储能"，而非更差的"迁移后重求储能"），较固定策略 $F_{00}=-4.198\times10^8$ 元改善 $3.94\times10^7$ 元。储能单独即贡献全部 $3.94\times10^7$ 元；任务迁移在无储能时贡献 $2.44\times10^7$ 元（$F_{10}$），而在储能存在时边际为零（$F_{01}-F_{11}=0$）。存储感知邻域回退搜索显示：两阶段方案 $F_{11}^{2\mathrm{stage}}=-4.590\times10^8$ 元反而高于 $F_{01}$，逐批回退迁移任务后储能成本单调回落至本地任务基线。交互项 $I=F_{10}+F_{01}-F_{11}-F_{00}=-2.44\times10^7$ 元，说明在当前可行策略层面任务迁移与储能呈现明显替代迹象；因任务侧缺有效全问题下界，此为可行策略层面的机制证据，而非全局最优政策下的严格判定。
+
+\begin{table}[H]
+  \centering
+  \caption{问题四四格对比（元）}
+  \begin{tabularx}{\textwidth}{CLL}
+    \toprule
+    格 & 策略 & 成本 $F$ \\
+    \midrule
+    F00 & 固定任务+无储能 & $-4.198\times10^8$ \\
+    F10 & 任务优化+无储能 & $-4.442\times10^8$ \\
+    F01 & 固定任务+储能 & $-4.592\times10^8$ \\
+    F11 & 任务优化+储能 & $-4.592\times10^8\ (=F_{01})$ \\
+    \midrule
+    \multicolumn{2}{l}{交互项 $I=F_{10}+F_{01}-F_{11}-F_{00}$} & $-2.44\times10^7$ \\
+    \bottomrule
+  \end{tabularx}
+  \label{tab:q4_cell}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/result_q4_fourcell.png}
+  \caption{四格收益分解：联合=储能(任务迁移收益被储能吸收)、交互为替代}
+  \label{fig:result_q4}
+\end{figure}
+
+情景扫描（图\ref{fig:process_q4}）显示：受"不迁移"incumbent 保护，任务节省 $F_{00}-F_{10}\ge 0$ 恒成立；随新能源规模下降，任务迁移的独立增益在 $\rho\in[0.7,0.8]$ 衰减至 $0$（此后 $F_{10}=F_{00}$，无储能下迁移不再改善），储能节省 $F_{00}-F_{01}$ 在全扫描范围恒为正（$3.94\times10^7$--$1.13\times10^8$ 元）。$\rho=0.4$ 时无储能方案因购电上限不可行（$F_{00}/F_{10}$ 无可行解）而含储能方案仍可行。低新能源缺口与"外送价$\times 0.7$、购电价$\times 1.3$"扰动下储能方案仍稳定为最优，凸显储能在可再生波动场景的鲁棒价值。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.72\textwidth]{figures/process_q4_transition.png}
+  \caption{随 $\rho$ 下降：任务迁移独立增益衰减至 0、储能节省恒正、交互项恒为替代}
+  \label{fig:process_q4}
+\end{figure}

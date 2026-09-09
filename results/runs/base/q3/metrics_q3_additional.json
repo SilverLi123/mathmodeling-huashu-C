@@ -1,0 +1,19 @@
+{
+ "no_storage": {
+  "peak_net_purchase_MW": -82.40380291000008,
+  "peak_gross_purchase_MW": 31.597867090000022,
+  "mean_abs_ramp_MW": 29.29024803958205,
+  "ren_util": 0.6791498911659758,
+  "storage_throughput_MWh": 0.0,
+  "efficiency_loss_MWh": 0.0
+ },
+ "with_storage": {
+  "peak_net_purchase_MW": -413.52420041662526,
+  "peak_gross_purchase_MW": 2.17964646134397e-06,
+  "mean_abs_ramp_MW": 0.4063945242318592,
+  "ren_util": 0.6951416524090978,
+  "storage_throughput_MWh": 346196.844659117,
+  "efficiency_loss_MWh": 23237.41492803165
+ },
+ "renewable_available_MWh": 11550768.36
+}
